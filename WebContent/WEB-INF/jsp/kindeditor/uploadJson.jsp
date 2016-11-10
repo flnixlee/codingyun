@@ -4,7 +4,7 @@
 <%@ page import="org.apache.commons.fileupload.*" %>
 <%@ page import="org.apache.commons.fileupload.disk.*" %>
 <%@ page import="org.apache.commons.fileupload.servlet.*" %>
-<%@ page import="org.json.simple.*" %>
+<%@ page import="net.sf.json.*" %>
 <%
 
 /**
@@ -111,7 +111,7 @@ while (itr.hasNext()) {
 		JSONObject obj = new JSONObject();
 		obj.put("error", 0);
 		obj.put("url", saveUrl + newFileName);
-		out.println(obj.toJSONString());
+		out.println(obj.toString());
 	}
 }
 %>
@@ -120,6 +120,6 @@ private String getError(String message) {
 	JSONObject obj = new JSONObject();
 	obj.put("error", 1);
 	obj.put("message", message);
-	return obj.toJSONString();
+	return obj.toString();
 }
 %>
